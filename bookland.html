@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Bookland</title>
+	<script type="text/javascript" src="bookland_search_script.js"></script>
+	<!--<link rel="stylesheet" type="text/css" href="bookland_stylesheet.css">-->
+	<link rel="stylesheet" type="text/css" href="bookland_stylesheet_additions.css">
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<h1>bookland</h1>
+		</div>
+		<div id="content">
+			<div id="inputSection">
+			<form id="bookForm" onsubmit="return false;">
+					<table>
+						<tr>
+							<td>Author Name:</td>
+							<td><input type="text" id="authorName" value="" size="42"></td>
+						</tr>
+						<tr>
+							<td>Book Title:</td>
+							<td><input type="text" id="bookTitle" value="" size="42"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" value="Find Book" id="submit" onclick="runTheSearch()"><input type="submit" value="Clear Info" id="clear"></td>
+						</tr>
+					</table>
+					</form>
+				</div>
+				<div id="informationSection">
+					<textarea rows="16" cols="55" id="bookInfoBox">
+A note to the "user": 
+
+Author names and book titles have been properly capitalized in the dataset, so they differ in that regard from the information provided in the assignment.
+
+For example:  "A portrait of the artist as a young man" has become "A Portrait of the Artist as a Young Man".
+					</textarea>
+				</div>
+			</div>
+	</div>
+</body>
+</html>
