@@ -18,9 +18,11 @@ function addNotes(){
         return;
     }
     
+    const dataAtual = new Date();
     const noteObj = {
         title: addTitle.value,
         text: addText.value,
+        date: dataAtual.toLocaleString()
     }
     addTitle.value = '';
     addText.value = '';
@@ -42,6 +44,7 @@ function showNotes(){
                     <button class="deleteNote" id=${i} onclick="deleteNote(${i})">Delete</button>
                     <span class="title"><strong style="font-size: 20px;">${notes[i].title === "" ? 'Note' : notes[i].title}</strong></span>
                     <div class="text">${notes[i].text}</div>
+                    <span style="font-size: 12px; color: gray;">${notes[i].date}</span>
                 </div>
         `
     }
