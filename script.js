@@ -2,6 +2,7 @@ const addTitle = document.getElementById('addTitle');
 const addText = document.getElementById('addText');
 const addNoteButton = document.getElementById('addNote');
 const notesDiv = document.getElementById('notes');
+const searchId = document.getElementById('search');
 
 showNotes();
 
@@ -75,4 +76,19 @@ function deleteNote(ind){
     localStorage.setItem('notes', JSON.stringify(notes));
     showNotes();
 }
+
+function searchNotes(){
+    let textoBusca = searchId.value.toLowerCase();
+    let notas = document.getElementsByClassName('note');
+
+    for (let i = 0; i < notas.length; i++) {
+        if (notas[i].innerText.toLowerCase().includes(textoBusca)) {
+            notas[i].style.display = "block";
+        } else {
+            notas[i].style.display = "none";
+        }
+    }
+}
+
 addNoteButton.addEventListener('click', addNotes);
+searchId.addEventListener('input', searchNotes);
