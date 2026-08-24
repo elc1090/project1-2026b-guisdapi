@@ -6,7 +6,7 @@
 
 **novas demandas**
 
-* implementar indexedDB
+* ~~implementar indexedDB~~ (24/08)
 * modernizar design
 
 
