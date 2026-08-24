@@ -143,3 +143,13 @@ function searchNotes(){
 
 addNoteButton.addEventListener('click', addNotes);
 searchId.addEventListener('input', searchNotes);
+
+const searchBtn = document.getElementById('searchBtn');
+
+searchBtn.addEventListener('click', function() {
+    searchId.classList.toggle('open');
+
+    if (searchId.classList.contains('open')) {
+        searchId.focus();
+    }
+});

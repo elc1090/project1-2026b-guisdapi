@@ -1,50 +1,91 @@
-*{
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #F7F4EF; /* O bege clarinho agora está no body! */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4A3F35;
 }
 
 .container{
     min-height: 100vh;
-    width: 100vw;
-    padding: 23px;
-    background-color: #282b35;
+    background-color: #F7F4EF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4A3F35;
 }
 
-.header-title{
+header-title h1 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 42px;
+    font-weight: 600;
+    color: #6B5B4E;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+#input-box {
+    background-color: #FFFFFF;
+    padding: 25px;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(107, 91, 78, 0.04);
+    max-width: 600px;
     display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: rgb(71, 71, 71);
-    text-align: center;
-    color: rgb(7, 7, 7);
-}
-
-.header-title :nth-child(1){
-    font-size: 30px;
-}
-
-
-.header-title :nth-child(2){
-    color:#F9BD34;
-    margin-top: 10px;
-}
-
-
-#input-box{
-    border: 1px solid black;
-    padding: 23px;
+    flex-direction: column;
+    gap: 15px;
 }
 #addTitle{
     font-weight: bolder;
    }
-input, textarea{
-    width: 100%;
-    background-color: transparent;
-    border: none;
+
+input[type="text"], textarea, #search {
+    padding: 12px 15px;
+    border: 1px solid #DED6CC;
+    border-radius: 8px;
+    background-color: #FCFAFA;
+    color: #4A3F35;
+    font-size: 16px;
+    font-family: inherit;
+    resize: none;
+    transition: border 0.3s ease, background-color 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus, #search:focus {
     outline: none;
-    margin-top: 6px;
+    border-color: #BBA795;
+    background-color: #FFFFFF;
+}
+
+input[type="text"]:focus, textarea:focus, #search:focus {
+    outline: none;
+    border-color: #BBA795; /* Fica marrom claro ao clicar */
+    background-color: #FFFFFF;
+}
+
+::placeholder {
+    color: #A89C92; 
+}
+
+button#addNote {
+    background-color: #BBA795; /* Marrom claro acinzentado / Taupe */
     color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-end;
+}
+
+button#addNote:hover {
+    background-color: #9C8977; /* Escurece um pouco ao passar o mouse */
+    transform: translateY(-1px); /* Sobe um pixel suavemente */
+}
+
+button#addNote:active {
+    transform: translateY(1px);
 }
 
 button{
@@ -52,6 +93,7 @@ button{
     color: white;
     padding: 8px 12px;
     border: 1px solid white;
+    border-radius: 12px;
 }
 
 #notes{
@@ -71,4 +113,68 @@ button{
 
 .deleteNote{
     float: right;
+}
+
+.editNote{
+    float: right;
+    margin-right: 10px;
+}
+
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.top-bar h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #6B5B4E;
+    margin: 0;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#search {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #4A3F35;
+    transition: all 0.4s ease;
+}
+
+#search.open {
+    width: 200px;
+    opacity: 1;
+    padding: 10px 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #DED6CC;
+    border-radius: 25px; /* Bem arredondado para combinar com o botão */
+}
+
+.circular-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Transforma o botão num círculo perfeito */
+    background-color: #BBA795;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(107, 91, 78, 0.15);
+}
+
+.circular-btn:hover {
+    background-color: #9C8977;
+    transform: scale(1.05); /* Cresce de leve ao passar o mouse */
 }
