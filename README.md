@@ -1,7 +1,8 @@
 # Projeto: Remake de aplicação web simples
 
-[20260824_222213_Gravando_2026-08-24 222034.mp4](assets/20260824_222213_Gravando_2026-08-24 222034.mp4)
-
+<video width="100%" controls>
+  <source src="assets/20260824_222213_Gravando_2026-08-24%20222034.mp4" type="video/mp4">
+</video>
 
 ## Acesso
 
