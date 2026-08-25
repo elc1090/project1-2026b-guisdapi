@@ -71,7 +71,7 @@ request.onupgradeneeded = function(event) {
 };
 ```
 
-Retirar dados do banco de dados
+Acessar dados do banco de dados
 
 ```
     const transaction = db.transaction(['notes'], 'readonly');
@@ -80,6 +80,7 @@ Retirar dados do banco de dados
 
     request.onsuccess = function(event) {
         const notes = event.target.result;
+        ...
 
 ```
 
