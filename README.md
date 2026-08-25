@@ -1,8 +1,7 @@
 # Projeto: Remake de aplicação web simples
 
-<video width="100%" controls>
-  <source src="assets/demo.mp4" type="video/mp4">
-</video>
+<img width="1280" height="646" alt="demo (1)" src="https://github.com/user-attachments/assets/7e12fdf6-872e-44ca-ac1d-910a1bbeb644" />
+
 
 ## Acesso
 
