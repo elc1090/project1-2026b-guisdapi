@@ -4,32 +4,25 @@ const addNoteButton = document.getElementById('addNote');
 const notesDiv = document.getElementById('notes');
 const searchId = document.getElementById('search');
 
-// criação banco de dados indexedDB
 let db;
 
-const request = indexedDB.open('NotesAppDB', 1); // nome do banco de dados e versão
+const request = indexedDB.open('NotesAppDB', 1);
 
-// evento disparado se o banco não existir ou a versão mudar (criação da estrutura)
 request.onupgradeneeded = function(event) {
     db = event.target.result;
     
-    // cria o "Object Store" (como se fosse uma tabela) chamado 'notes'
-    // keyPath com autoIncrement cria um ID único e automático para cada nota
     if (!db.objectStoreNames.contains('notes')) {
         db.createObjectStore('notes', { keyPath: 'id', autoIncrement: true });
     }
 };
 
-// evento disparado quando o banco abre com sucesso
 request.onsuccess = function(event) {
     db = event.target.result;
     console.log("Banco de dados aberto com sucesso!");
     
-    // chama showNotes
     showNotes(); 
 };
 
-// evento disparado se houver erro ao abrir o banco de dados
 request.onerror = function(event) {
     console.error("Erro ao abrir o banco de dados:", event.target.errorCode);
 };
@@ -55,6 +48,16 @@ function addNotes(){
         addTitle.value = '';
         addText.value = '';
         //limpa os campos de input
+
+        document.getElementById('editLabel').style.display = "none";
+        let btn = document.getElementById('addNote');
+        btn.innerText = "Add";
+        btn.style.backgroundColor = "#BBA795";
+
+        document.querySelector('.top-bar').classList.remove('blur-effect');
+        document.getElementById('notes').classList.remove('blur-effect');
+        document.getElementById('input-box').classList.remove('focus-mode');
+
         showNotes(); 
     };
 
@@ -71,7 +74,7 @@ function showNotes(){
     const request = store.getAll();
 
     request.onsuccess = function(event) {
-        const notes = event.target.result; // array que contém todas as notas do banco de dados
+        const notes = event.target.result;
 
         for(let i = 0; i < notes.length; i++) {            
             notesHTML += `<div class="note">
@@ -105,6 +108,16 @@ function editNote(id) {
         if (note) {
             addTitle.value = note.title;
             addText.value = note.text;
+            
+            document.getElementById('editLabel').style.display = "block";
+            let btn = document.getElementById('addNote');
+            btn.innerText = "Salvar"; 
+            btn.style.backgroundColor = "#E07A5F";
+
+            document.querySelector('.top-bar').classList.add('blur-effect');
+            document.getElementById('notes').classList.add('blur-effect');
+            document.getElementById('input-box').classList.add('focus-mode');
+
             deleteNote(id);
         }
     };

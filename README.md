@@ -1,93 +1,134 @@
-**demandas**
-
-- ~~edição de notas existentes~~ (18/05)
-- ~~campo de busca e filtro de notas~~ (18/05)
-- ~~registro de data e hora de criação/edição~~ (17/05)
-
-**novas demandas**
-
-* ~~implementar indexedDB~~ (24/08)
-* modernizar design
-
-
-
 # Projeto: Remake de aplicação web simples
 
 > 1. Leia com atenção as instruções abaixo para editar este README em formato Markdown.
 > 2. Substitua todos os trechos de texto iniciados com "Substitua" por informações do seu projeto, conforme solicitado em cada trecho.
-> 3. Substitua a imagem animada por um GIF/WEBP mostrando o resultado do seu projeto (o arquivo pode ser armazenado no repositório ou em URL externa). 
+> 3. Substitua a imagem animada por um GIF/WEBP mostrando o resultado do seu projeto (o arquivo pode ser armazenado no repositório ou em URL externa).
 > 4. Remova todas as instruções de entrega.
-> 5. Renomeie esta arquivo para README.md e entregue-o dentro da pasta raiz do seu repositório de entrega. 
+> 5. Renomeie esta arquivo para README.md e entregue-o dentro da pasta raiz do seu repositório de entrega.
 > 6. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega e seja visualizado corretamente ao abrir seu repositório!
-> Opcional: você pode alterar a formatação deste README, mas mantenha todas as informações solicitadas.
+>    Opcional: você pode alterar a formatação deste README, mas mantenha todas as informações solicitadas.
 
 ![Substitua a imagem ao lado por um GIF/WEBP animado mostrando seu projeto](./moho_follow_through2.gif "GIF animado do projeto. Imagem temporária de Moho Animation https://moho.lostmarble.com/products/moho-pro-special-halls-head-college")
 
-
-
 ## Acesso
 
-Substitua este texto pela URL para acesso ao seu app publicado. Adicione a URL também na seção "About" do seu repositório no GitHub.
-
+https://elc1090.github.io/project1-2026b-guisdapi/
 
 ## Desenvolvedor(a)
-Substitua este texto pela sua identificação: nome e curso
 
-
+* Nome: Guilherme Serafini Dapieve
+* Curso: Sistemas da Informação
 
 ## App original
 
 ### Links
 
-- Acesso: Substitua este texto pela URL de deploy do app original
-- Repositório: Substitua este texto pelo repositório de código do app original
+- https://thebarunkumar.github.io/my-notes-app/
+- https://github.com/thebarunkumar/my-notes-app
 
 ### Descrição
 
-Substitua este texto por uma descrição do app original. Inclua observações sobre sua autoria, conteúdo, aparência e código.
+O aplicativo original é um bloco de notas simples em formato web ("My Notes App") desenvolvido por TheBarunKumar. O projeto base permite que o usuário adicione novas notas e as exclua, possuindo uma interface escura (dark mode) rudimentar. O código original foi construído com HTML, CSS e JavaScript, focado principalmente na manipulação direta do DOM. Para garantir que as anotações não sumissem ao recarregar a página, a versão original utilizava a Web Storage API (localStorage) de forma síncrona, armazenando os objetos das notas em um array convertido para string via JSON.
 
 ## Demanda do(a) cliente
 
 ### Cliente
-Substitua este texto pela identificação do cliente
+
+Carlos Eduardo Veloso Correa
 
 ### Demanda
-Substitua este texto pela demanda do(a) cliente (texto literal).
+
+Edição de Notas Existentes
+
+Campo de Busca e Filtro de Notas
+
+Registro de Data e Hora de Criação/Edição
 
 ## Desenvolvimento
 
 ### Processo
 
-Substitua este texto por uma descrição do processo de desenvolvimento **em primeira pessoa, sem ajuda de IA**, explicando como você buscou entender o código existente, o que conhecia ou não, como lidou com as demandas (quais foram atendidas, não-atendidas, substituídas/adicionadas). 
+Busquei entender o código lendo e analisando os arquivos originais.
+
+Para realizar as demandas obtive auxílio de IA para entender a tecnologia, os novos termos, como funcionava o que eu não havia visto ainda.
+
+As demandas foram tranquilas de implementar, foram necessárias pequenas mudanças no código de JavaScript e a criação de uma função para fazer a pesquisa de notas e outra para a edição.
+
+Como demandas adicionais, tive a demanda de trocar o localStorage pelo indexedDB e a demanda de modernizar o design da página.
+
+Precisei entender o que era o localStorage e como o JavaScript atuava junto disso. Tive que entender como implementar o indexedDB também e refatorar as funções pré-existentes de adicionar, mostrar e remover notas.
+
+Na parte de design, o que mais foi alterado foi o style.css, juntamente com algumas animações no layout feitas com JavaScript. O efeito de fundo borrado também foi aplicado com CSS e JavaScript.
 
 ### Trechos de código
 
-Indique pelo menos 3 trechos de código que você queira destacar para a turma (por exemplo, para contrastar com o código original, para explicar algo que aprendeu, para alertar sobre alguma dificuldade de compreensão, para mostrar uma curiosidade, etc).
+Criação do banco de dados:
 
+```
+let db;
+
+const request = indexedDB.open('NotesAppDB', 1);
+
+request.onupgradeneeded = function(event) {
+    db = event.target.result;
+  
+    if (!db.objectStoreNames.contains('notes')) {
+        db.createObjectStore('notes', { keyPath: 'id', autoIncrement: true });
+    }
+};
+```
+
+
+
+Retirar dados do banco de dados
+
+```
+    const transaction = db.transaction(['notes'], 'readonly');
+    const store = transaction.objectStore('notes');
+    const request = store.getAll();
+
+    request.onsuccess = function(event) {
+        const notes = event.target.result;
+
+```
+
+SVG: Scalable Vector Graphics (Gráficos vetoriais escaláveis)
+
+```
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+
+```
+
+Indique pelo menos 3 trechos de código que você queira destacar para a turma (por exemplo, para contrastar com o código original, para explicar algo que aprendeu, para alertar sobre alguma dificuldade de compreensão, para mostrar uma curiosidade, etc).
 
 ## Tecnologias
 
 ### Linguagens e afins
 
 Substitua este trecho por uma lista detalhada de tecnologias usadas no remake (tanto as básicas, como HTML, CSS e JavaScript, como alguma específica, por exemplo APIs externas, etc.):
-- ...
-- ...
-- 
+
+- HTML
+- CSS
+- JavaScript
 
 ### Ambiente de desenvolvimento
 
 Substitua este trecho por uma lista detalhada dos ambientes/ferramentas de desenvolvimento que você usou (por exemplo, VS Code + alguma extensão, agentes de IA, etc.)
-- ...
-- ...
+
+- VS Code
+- Gemini
 
 ## Referências e créditos
 
 Substitua este trecho por uma lista bem detalhada de todo material que você consultou para ajudar no projeto, por exemplo:  URLs de vídeos ou outro material consultado, créditos para colegas que colaboraram, geradores de código, etc.
-- ...
-- ...
 
-
-
+- [MDN Web Docs](https://developer.mozilla.org/pt-BR/)
+- Gemini
+- Google Fonts
 
 ---
+
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2026b) em 2026b
