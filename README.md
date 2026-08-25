@@ -98,22 +98,16 @@ SVG: Scalable Vector Graphics (Gráficos vetoriais escaláveis)
 
 ### Linguagens e afins
 
-Substitua este trecho por uma lista detalhada de tecnologias usadas no remake (tanto as básicas, como HTML, CSS e JavaScript, como alguma específica, por exemplo APIs externas, etc.):
-
 - HTML
 - CSS
 - JavaScript
 
 ### Ambiente de desenvolvimento
 
-Substitua este trecho por uma lista detalhada dos ambientes/ferramentas de desenvolvimento que você usou (por exemplo, VS Code + alguma extensão, agentes de IA, etc.)
-
 - VS Code
 - Gemini
 
 ## Referências e créditos
-
-Substitua este trecho por uma lista bem detalhada de todo material que você consultou para ajudar no projeto, por exemplo:  URLs de vídeos ou outro material consultado, créditos para colegas que colaboraram, geradores de código, etc.
 
 - [MDN Web Docs](https://developer.mozilla.org/pt-BR/)
 - Gemini
